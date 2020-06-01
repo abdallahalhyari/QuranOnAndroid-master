@@ -1,0 +1,205 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+android:layoutDirection="ltr"
+    android:background="@drawable/menuback"
+    tools:context=".manager"
+    tools:targetApi="jelly_bean_mr1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:id="@+id/player_header_bg"
+            android:layout_width="fill_parent"
+            android:layout_height="60dip"
+            android:background="@layout/bg_player_header"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_weight="0"
+            tools:ignore="ObsoleteLayoutParam">
+
+            <!-- Song Title -->
+            <TextView
+                android:id="@+id/songTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#04b3d2"
+                android:textSize="16sp"
+                android:paddingLeft="10dp"
+                android:textStyle="bold"
+                android:text="@string/ss"
+                android:layout_marginTop="10dp"
+                tools:ignore="NestedWeights,RtlSymmetry"
+                android:paddingStart="10dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:id="@+id/layoutads"
+            android:visibility="gone">
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-7555202127441490/5036870657"
+                android:layout_weight="0"
+                tools:ignore="NestedWeights" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/songThumbnail"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:src="@drawable/quran"
+                android:contentDescription="@string/tod" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/player_footer_bg"
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:background="@layout/bg_player_footer"
+            android:gravity="center"
+            android:layout_weight="0">
+
+            <!-- Player Buttons -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@layout/rounded_corner"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
+                <!-- Previous Button -->
+                <ImageButton
+                    android:id="@+id/btnPrevious"
+                    android:src="@drawable/btn_previous"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:contentDescription="@string/fff" />
+                <!-- Backward Button -->
+                <ImageButton
+                    android:id="@+id/btnBackward"
+                    android:src="@drawable/btn_backward"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:contentDescription="@string/cvn" />
+                <!-- Play Button -->
+                <!-- Forward Button -->
+                <ImageButton
+                    android:id="@+id/btnForward"
+                    android:src="@drawable/btn_forward"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:contentDescription="@string/j_n" />
+                <!-- Next Button -->
+                <ImageButton
+                    android:id="@+id/btnNext"
+                    android:src="@drawable/btn_next"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:contentDescription="@string/fhc"
+                    tools:ignore="ContentDescription" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/timerDisplay"
+            android:layout_weight="0">
+
+            <TextView
+                android:id="@+id/songCurrentDurationLabel"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:ignore="NestedWeights,RtlHardcoded" />
+
+            <TextView
+                android:id="@+id/songTotalDurationLabel"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/songProgressBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="5dp"
+            android:thumb="@drawable/seek_handler"
+            android:progressDrawable="@drawable/seekbar_progress"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:layout_weight="0" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="0">
+            <!-- Repeat Button -->
+            <ImageButton
+                android:id="@+id/btnRepeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_repeat"
+                android:layout_marginRight="5dp"
+                android:background="@null"
+                android:layout_marginEnd="5dp"
+                android:contentDescription="@string/t" />
+
+            <!-- Shuffle Button -->
+            <ImageButton
+                android:id="@+id/btnShuffle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_shuffle"
+                android:layout_marginLeft="5dp"
+                android:background="@null"
+                android:layout_marginStart="5dp"
+                android:contentDescription="@string/to" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
